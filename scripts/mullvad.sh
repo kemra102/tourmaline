@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+mkdir /opt
 ln -s /var/opt/Mullvad\ VPN /opt/Mullvad\ VPN
 
 filename='mullvad.rpm'
