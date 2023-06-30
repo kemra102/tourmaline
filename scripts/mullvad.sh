@@ -10,4 +10,4 @@ rpm-ostree install -y "$filename"
 rm -f "$filename"
 
 mv /var/opt/Mullvad\ VPN /usr/lib/
-echo 'L /opt/Mullvad\x20VPN - - - - ../../usr/lib/Mullvad\x20VPN' > /usr/lib/tmpfiles.d/mullvad-vpn.conf
+echo 'L "/opt/Mullvad VPN" - - - - "../../usr/lib/Mullvad VPN"' > /usr/lib/tmpfiles.d/mullvad-vpn.conf
