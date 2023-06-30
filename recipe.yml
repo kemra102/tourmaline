@@ -24,7 +24,6 @@ scripts:
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
   - python3-pip # needed for yafti (the first boot installer)
-  - starship
   - vim-enhanced
   - zsh
 
