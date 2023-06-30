@@ -18,7 +18,9 @@ description: A starting point for further customization of uBlue images. Make yo
 # These scripts will be executed during the container build
 # Place scripts in scripts/ and put the corresponding filename here
 scripts:
- - starship.sh
+  - mullvad.sh
+  - starship.sh
+  - yadm.sh
 
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
