@@ -2,6 +2,8 @@
 
 set -x
 
+mkdir /var/opt/Mullvad\ VPN
+
 ls -l /opt
 ls -ld /opt
 ls -l /var
