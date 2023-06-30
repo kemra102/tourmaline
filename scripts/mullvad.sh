@@ -1,7 +1,10 @@
 #!/usr/bin/bash
 
-mkdir /opt
-ln -s /var/opt/Mullvad\ VPN /opt/Mullvad\ VPN
+set -x
+
+ls -l /opt
+ls -ld /opt
+ls -l /var
 
 filename='mullvad.rpm'
 curl -L https://mullvad.net/download/app/rpm/latest -o "$filename"
