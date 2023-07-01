@@ -9,5 +9,5 @@ curl -L https://mullvad.net/download/app/rpm/latest -o "$filename"
 rpm-ostree install -y "$filename"
 rm -f "$filename"
 
-mv /var/opt/Mullvad\ VPN /usr/lib/
-echo 'L "/opt/Mullvad VPN" - - - - "../../usr/lib/Mullvad VPN"' > /usr/lib/tmpfiles.d/mullvad-vpn.conf
+# mv /var/opt/Mullvad\ VPN /usr/lib/
+echo 'L "/opt/Mullvad VPN" - - - - ../../var/opt/Mullvad\x20VPN' > /usr/lib/tmpfiles.d/mullvad-vpn.conf
