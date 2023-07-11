@@ -2,9 +2,9 @@ FROM registry.fedoraproject.org/fedora-toolbox:38
 
 LABEL com.github.containers.toolbox="true"
 
-COPY build.sh /build.sh
+COPY --chmod=755 build.sh /tmp/build.sh
 
-RUN /build.sh \
-    rm -f /build.sh
+RUN /tmp/build.sh \
+    rm -f /tmp/build.sh
 
 RUN ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/yadm
