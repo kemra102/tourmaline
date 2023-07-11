@@ -32,6 +32,8 @@ jobs:
         with:
           containerfiles: |
             ./toolboxes/fedora/Containerfile
+          context: |
+            ./toolboxes/fedora
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.IMAGE_TAGS }}
           oci: false
