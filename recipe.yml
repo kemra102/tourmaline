@@ -18,7 +18,6 @@ description: A starting point for further customization of uBlue images. Make yo
 # These scripts will be executed during the container build
 # Place scripts in scripts/ and put the corresponding filename here
 scripts:
-  - mullvad.sh
   - starship.sh
   - yadm.sh
 
