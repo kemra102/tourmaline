@@ -51,6 +51,6 @@ modules:
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
       # My additional scripts
-      - atuin.sh
+      # - atuin.sh
       - starship.sh
       - yadm.sh
