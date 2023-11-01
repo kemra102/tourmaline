@@ -52,5 +52,6 @@ modules:
       - signing.sh
       # My additional scripts
       - atuin.sh
+      - discover.sh
       - starship.sh
       - yadm.sh
