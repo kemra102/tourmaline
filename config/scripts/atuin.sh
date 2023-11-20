@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 ATUIN_VERSION='17.0.1'
 ATUIN_FILE_NAME="atuin-v${ATUIN_VERSION}-x86_64-unknown-linux-gnu" # without file extension
 TMP_DIR=$(mktemp -d)
