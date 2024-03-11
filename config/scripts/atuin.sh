@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-ATUIN_VERSION='18.0.1'
+ATUIN_VERSION='18.1.0'
 ATUIN_FILE_NAME="atuin-v${ATUIN_VERSION}-x86_64-unknown-linux-gnu" # without file extension
 TMP_DIR=$(mktemp -d)
 
