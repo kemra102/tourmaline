@@ -10,13 +10,6 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - usr:
-          /usr # copies config/files/usr into your image's /usr.
-          # put configuration files you want in /etc/ on a booted system
-          # in /usr/etc/ in the image. read more in files module reference.
-
   - type: rpm-ostree
     repos:
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
@@ -34,24 +27,6 @@ modules:
       # - 1password # install 1Password (stable) and `op` CLI tool
       # - dconf-update-service # a service unit that updates the dconf db on boot
       # - gnome-vrr # enables gnome-vrr for your image
-      # - laptop # installs TLP and configures your system for laptop usage
-      # - flatpaksync # allows synchronization of user-installed flatpaks, see separate documentation section
-
-  - type: default-flatpaks
-    notify: true   # Send notification after install/uninstall is finished (true/false)
-    # system:
-      # If no repo information is specified, Flathub will be used by default
-      # repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      # repo-name: flathub
-      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-      # install:
-      # - org.gnome.Loupe
-      # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-      # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08).
-      # Only normal flatpak applications are (like Floorp Lightning web browser in this example).
-      # Multiple install of same flatpaks with different branches is not supported.
-      # remove:
-      # - org.gnome.eog
 
   - type: script
     scripts:
