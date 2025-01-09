@@ -14,13 +14,25 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # you can include multiple instances of the same module
 modules:
   - type: rpm-ostree
+    repos:
+      - https://repository.mullvad.net/rpm/stable/mullvad.repo
+    keys:
+      - https://repository.mullvad.net/rpm/mullvad-keyring.asc
+    optfix:
+      - Mullvad VPN
     install:
+      - mullvad-vpn
       - solaar
       - vim-enhanced
       - zsh
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+
+  - type: systemd
+    system:
+      enabled:
+        - mullvad-daemon.service
 
   - type: bling
     install:
