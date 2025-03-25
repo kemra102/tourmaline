@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+# dnf5 install -y tmux 
 
 # Use a COPR Example:
 #
@@ -21,4 +21,58 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
+
+# Install simple packages
+dnf5 -y install k3b flac solaar vim-enhanced zsh
+
+
+# Remove simple packages
+dnf5 -y remove firefox firefox-langpacks
+
+
+# Install Atuin
+ATUIN_VERSION='18.4.0'
+ATUIN_FILE_NAME="atuin-x86_64-unknown-linux-gnu" # without file extension
+TMP_DIR=$(mktemp -d)
+
+curl -sL "https://github.com/atuinsh/atuin/releases/download/v${ATUIN_VERSION}/${ATUIN_FILE_NAME}.tar.gz" --output - | tar -xzf - -C "$TMP_DIR"
+
+cp "${TMP_DIR}/${ATUIN_FILE_NAME}/atuin" /usr/bin/
+
+# Shell completions no longer included in release tarball
+# So generate them now
+/usr/bin/atuin gen-completions --shell zsh --out-dir /usr/share/zsh/site-functions/
+
+rm -rf "$TMP_DIR"
+
+
+# Disable Discover notifier as we automate updates in the background
+if [[ -f /etc/xdg/autostart/org.kde.discover.notifier.desktop ]]; then
+    rm -f /etc/xdg/autostart/org.kde.discover.notifier.desktop
+fi
+
+
+# Install LACT
+dnf5 -y copr enable ilyaz/LACT
+dnf5 -y install lact
+systemctl enable lactd.service
+
+
+# Install Mullvad VPN
+dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+dnf5 -y install mullvad-vpn
+systemctl enable mullvad-daemon.service
+
+
+# Install Starship
+curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
+
+
+# Install VSCode
+dnf5 -y config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
+dnf5 -y install code
+
+
+# Install YADM
+curl -fLo /usr/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/bin/yadm
