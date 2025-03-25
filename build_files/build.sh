@@ -23,6 +23,23 @@ set -ouex pipefail
 
 # systemctl enable podman.socket
 
+# Enable install to /opt
+echo "Creating symlinks to fix packages that install to /opt"
+# Create symlink for /opt to /var/opt since it is not created in the image yet
+mkdir -p "/var/opt"
+ln -fs "/var/opt"  "/opt"
+
+# Create symlinks for each directory specified
+OPTFIX=(Mullvad\ VPN)
+for OPTPKG in "${OPTFIX[@]}"; do
+    OPTPKG="${OPTPKG%\"}"
+    OPTPKG="${OPTPKG#\"}"
+    mkdir -p "/usr/lib/opt/${OPTPKG}"
+    ln -fs "/usr/lib/opt/${OPTPKG}" "/var/opt/${OPTPKG}"
+    echo "Created symlinks for ${OPTPKG}"
+done
+
+
 # Install simple packages
 dnf5 -y install k3b flac solaar vim-enhanced zsh
 
