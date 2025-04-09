@@ -45,7 +45,7 @@ dnf5 -y install k3b flac solaar vim-enhanced zsh
 
 
 # Remove simple packages
-dnf5 -y remove firefox firefox-langpacks
+# dnf5 -y remove firefox firefox-langpacks
 
 
 # Install Atuin
