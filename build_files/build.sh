@@ -70,12 +70,6 @@ if [[ -f /etc/xdg/autostart/org.kde.discover.notifier.desktop ]]; then
 fi
 
 
-# Install LACT
-dnf5 -y copr enable ilyaz/LACT
-dnf5 -y install lact
-systemctl enable lactd.service
-
-
 # Install Mullvad VPN
 dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 dnf5 -y install mullvad-vpn
