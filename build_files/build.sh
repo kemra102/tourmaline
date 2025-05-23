@@ -41,7 +41,7 @@ done
 
 
 # Install simple packages
-dnf5 -y install k3b flac solaar vim-enhanced zsh
+dnf5 -y install k3b flac solaar zsh
 
 
 # Remove simple packages
