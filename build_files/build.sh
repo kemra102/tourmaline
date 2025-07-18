@@ -49,7 +49,7 @@ dnf5 -y install k3b flac solaar zsh
 
 
 # Install Atuin
-ATUIN_VERSION='18.6.1'
+ATUIN_VERSION='18.7.1'
 ATUIN_FILE_NAME="atuin-x86_64-unknown-linux-gnu" # without file extension
 TMP_DIR=$(mktemp -d)
 
