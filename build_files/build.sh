@@ -41,7 +41,7 @@ done
 
 
 # Install simple packages
-dnf5 -y install k3b flac solaar zsh
+dnf5 -y install k3b flac ptyxis solaar zsh
 
 
 # Remove simple packages
