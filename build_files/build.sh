@@ -91,5 +91,4 @@ curl -fLo /usr/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm 
 
 # Add Firefox Policy from "Just the Browser"
 # https://justthebrowser.com/
-install -d /etc/firefox/policies/
-curl -sL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json | install -D /etc/firefox/policies -
+curl -sL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json --create-dirs --output-dir /etc/firefox/policies/
