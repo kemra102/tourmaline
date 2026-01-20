@@ -26,7 +26,7 @@ set -ouex pipefail
 # Enable install to /opt
 echo "Creating symlinks to fix packages that install to /opt"
 # Create symlink for /opt to /var/opt since it is not created in the image yet
-mkdir -p "/var/opt"
+install -d "/var/opt"
 ln -fs "/var/opt"  "/opt"
 
 # Create symlinks for each directory specified
@@ -34,7 +34,7 @@ OPTFIX=(Mullvad\ VPN)
 for OPTPKG in "${OPTFIX[@]}"; do
     OPTPKG="${OPTPKG%\"}"
     OPTPKG="${OPTPKG#\"}"
-    mkdir -p "/usr/lib/opt/${OPTPKG}"
+    install -d "/usr/lib/opt/${OPTPKG}"
     ln -fs "/usr/lib/opt/${OPTPKG}" "/var/opt/${OPTPKG}"
     echo "Created symlinks for ${OPTPKG}"
 done
@@ -55,7 +55,7 @@ TMP_DIR=$(mktemp -d)
 
 curl -sL "https://github.com/atuinsh/atuin/releases/download/v${ATUIN_VERSION}/${ATUIN_FILE_NAME}.tar.gz" --output - | tar -xzf - -C "$TMP_DIR"
 
-cp "${TMP_DIR}/${ATUIN_FILE_NAME}/atuin" /usr/bin/
+install "${TMP_DIR}/${ATUIN_FILE_NAME}/atuin" /usr/bin
 
 # Shell completions no longer included in release tarball
 # So generate them now
@@ -91,5 +91,5 @@ curl -fLo /usr/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm 
 
 # Add Firefox Policy from "Just the Browser"
 # https://justthebrowser.com/
-mkdir -p /etc/firefox/policies/
-curl -sL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json --output /etc/firefox/policies/policies.json
+install -d /etc/firefox/policies/
+curl -sL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json | install -D /etc/firefox/policies -
