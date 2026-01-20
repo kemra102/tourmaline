@@ -81,8 +81,13 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
 
 
 # Install VSCode
-dnf5 -y config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
-dnf5 -y install code
+# dnf5 -y config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
+# dnf5 -y install code
+
+
+# Install VSCodium
+dnf5 --assumeyes config-manager addrepo --id=vscodium --set=baseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/ --set=gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg --set=repo_gpgcheck=true
+dnf5 --assumeyes install codium
 
 
 # Install YADM
