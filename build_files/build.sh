@@ -87,3 +87,9 @@ dnf5 -y install code
 
 # Install YADM
 curl -fLo /usr/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/bin/yadm
+
+
+# Add Firefox Policy from "Just the Browser"
+# https://justthebrowser.com/
+mkdir -p /etc/firefox/policies/
+curl -sL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json --output /etc/firefox/policies/policies.json
