@@ -14,10 +14,10 @@ set -ouex pipefail
 
 # Use a COPR Example:
 #
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
+# dnf5 --assumeyes copr enable ublue-os/staging
+# dnf5 --assumeyes install package
 # Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+# dnf5 --assumeyes copr disable ublue-os/staging
 
 #### Example for enabling a System Unit File
 
@@ -41,11 +41,11 @@ done
 
 
 # Install simple packages
-dnf5 -y install k3b flac solaar zsh
+dnf5 --assumeyes install k3b flac solaar zsh
 
 
 # Remove simple packages
-# dnf5 -y remove firefox firefox-langpacks
+# dnf5 --assumeyes remove firefox firefox-langpacks
 
 
 # Install Atuin
@@ -71,8 +71,8 @@ fi
 
 
 # Install Mullvad VPN
-dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-dnf5 -y install mullvad-vpn
+dnf5 --assumeyes config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+dnf5 --assumeyes install mullvad-vpn
 systemctl enable mullvad-daemon.service
 
 
@@ -81,8 +81,8 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
 
 
 # Install VSCode
-# dnf5 -y config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
-# dnf5 -y install code
+# dnf5 --assumeyes config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
+# dnf5 --assumeyes install code
 
 
 # Install VSCodium
