@@ -49,7 +49,7 @@ dnf5 --assumeyes install k3b flac solaar zsh
 
 
 # Install Atuin
-ATUIN_VERSION='18.10.0'
+ATUIN_VERSION='18.12.0'
 ATUIN_FILE_NAME="atuin-x86_64-unknown-linux-gnu" # without file extension
 TMP_DIR=$(mktemp -d)
 
@@ -78,11 +78,6 @@ systemctl enable mullvad-daemon.service
 
 # Install Starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
-
-
-# Install VSCode
-# dnf5 --assumeyes config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/vscode/config.repo
-# dnf5 --assumeyes install code
 
 
 # Install VSCodium
